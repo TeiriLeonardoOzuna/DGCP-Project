@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teiri Leonardo Ozuna🤍🤍</title>
+    <link rel="shortcut icon" href="./PORTAFOLIOS/imagenes/Imagenme.png" type="img">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./tailwind.config.js">
+
+</head>
+<body>
+ 
+    <header>
+      <div><img src="./PORTAFOLIOS/imagenes/descarga.png" alt="Mi logo"></div>
+      <nav class="navbar">  
+            <ul class="menu">
+                <li><a href="#container" class="inicio">Inicio</a></li>
+                <li><a href="#sobremi">Sobre~Mi</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+            <div onclick="toggleMenu(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+          </nav>
+    </header>
+    <div id="container">
+      <img src="./PORTAFOLIOS/imagenes/Imagenme.png" alt=" imagen" class="responsive-image">
+      <div class="text-content" id="dynamic-text">
+          <h1 class="H">HIII🤍💻</h1>
+         <h1> Me presento mi nombre es: "Teiri L. Ozuna"🤍</h1>
+          <p>Espero poder cumplir su espectativa sobre mi, inplementando mis habilidades.</p>
+      </div>
+  </div>
+  <!-- icono float -->
+  <div class="floating-icon" id="myBtn">
+    <i class="fas fa-plus" id="myModal" class="modal"><a href="https://wa.me/8295736977?text=Saludos%20como%20esta?,Quisiera%20comunicarme%20mas%20personal%20con%20usted."><img src="./PORTAFOLIOS/imagenes/logo-whatsapp.png" alt="logo-whatsapp"></a></i>
+</div>
+
+<marquee><h2 class="marquee">TRABAJEN DE BUENA GANA EN TODO LO QUE HAGAN,COMO SI FUERA PAR EL SEÑOR Y NO PARA LAS PERSONAS...🤍</h2></marquee>
+
+
+<div class="content-center">
+  <h1 id="sobremi">Sobre~Mi</h1>
+  <br>
+  <br>
+  <p class="text-center font-sans">
+    Soy actualmente una estudiante de secundaria del ultimo año.Tengo 17 años de edad y
+    soy de republica Dominicana(santo Domingo) un pais destacado por sus vistas e historias,vengo de una familia muy 
+    unida que siempre han valorado la educacion y capacitacion de todo ser humano.
+    Estudie diseñador de sofware y aplicaciones en el politecnico(Felix Maria Ruiz) donde desarrolle mis habilidades 
+    en el area y descubri mi pasion por la programacion.He puesto y estoy poniendo en practica mis habilidades y conocimientos en (DGCP),soy muy determinada en lo que hago lo cual me ha permitido llegar mas lejos de lo pensado.
+    Ademas de la pasion por el  programar me gusta la musica, las artes escénicase y el arte de la pintura unos de mis mas 
+    frecuentes hobbies es el jugar voleibol, ver pelicula, y ver animes(estudio bliding),igualmente me gusta 
+    viajar y explorar el mundo, son momentos unicos e inolvidables.
+  </p>
+</div>
+<br>
+
+
+<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#fileUploadModal">Cambiar Imagen</button>
+ <script>
+    function toggleMenu(x) {
+      x.classList.toggle("change");
+        document.querySelector('.menu').classList.toggle('active');
+    }
+
+</script>
+
+<script>
+  // Smooth Scroll
+function smoothScrollTo(target, duration) {
+    const start = window.scrollY;
+    const end = target.offsetTop;
+    const distance = end - start;
+    const startTime = performance.now();
+
+    function scrollStep(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeInOutQuad = progress < 0.5 
+            ? 2 * progress * progress 
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        window.scrollTo(0, start + distance * easeInOutQuad);
+
+        if (elapsed < duration) {
+            requestAnimationFrame(scrollStep);
+        }
+    }
+
+    requestAnimationFrame(scrollStep);
+}
+
+document.querySelectorAll('.menu a, .btn').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            smoothScrollTo(targetSection, 2000);
+        }
+    });
+});
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+      const textContent = document.getElementById('dynamic-text');
+
+      // Agrega la clase dinámica
+      textContent.classList.add('dynamic');
+
+      // Opcional: Elimina la clase después de la animación para resetearla
+      setTimeout(() => {
+          textContent.classList.remove('dynamic');
+      }, 2000); // Duración en ms igual a la animación
+  });
+</script>
+
+
+
+
+
+</body>
+</html>
